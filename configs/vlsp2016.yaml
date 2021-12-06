@@ -1,0 +1,40 @@
+GPUS: "0, 1"
+WORKERS: 8
+OUTPUT: "log"
+
+CUDNN:
+  BENCHMARK: true
+  DETERMINISTIC: false
+  ENABLED: true
+
+DATASET: 
+  NAME: "VLSP2016"
+  PATH: "datasets/datasets/VLSP2016/"
+  TRAIN: 6 
+  VAL: 2
+  TEST: 2
+  SHUFFLE: false
+
+MODEL:
+  NAME: "phoBERT" # phoBERT
+
+FOCAL_LOSS: false
+
+TRAIN:
+  EPOCH: 10
+  EARLY_STOP: 3
+  LR: 0.00002 # 0.00005, 0.00003, 0.00002, 0.000005
+  BATCH_SIZE: 16
+  WEIGHTS: ''
+  DROPOUT: 0.5
+  FREEZE_BACKBONE: false
+  PREPROCESS: true
+  OPTIMIZER: "AdamW" # AdamW, Adafactor
+  SHUFFLE: true
+
+TEST:
+  BATCH_SIZE: 32
+  WEIGHTS: ''
+  PREPROCESS: true
+
+DEBUG: true
