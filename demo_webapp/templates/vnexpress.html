@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="modal-header">
+    <h1 class="modal-title">Sentiment Analysis For VNExpress Comments</h1>
+</div>
+
+<div class="modal-body">
+    <h2>Enter URL to a VNExpress article:</h2>
+    <form method="post" class="normal-form" action="/vnexpress" id="url-form">
+        {% if message %}
+        <p style="color: red">{{ message }}</p>
+        {% endif %}
+        <label for="url">URL:</label>
+        <input type="text" name="url" id="url" size="80"
+               placeholder="Ex: https://vnexpress.net/ronaldo-messi-mong-gi-o-chung-ket-champions-league-4284245.html"/>
+        <select name="model">
+              <option value="phoBERT">phoBERT</option>
+              <option value="SVM">SVM</option>
+              <option value="NB">Naive Bayes</option>
+        </select>
+        <button id="start-btn" class="btn btn-success" type="button">Start!</button>
+        <img id="waiting" src="{{ url_for('static', filename='img/waiting.gif') }}"
+             style="width: 50px; height: 50px; display: none"/>
+    </form>
+    {% if num_results %}
+    <h3 style="padding-top:10px;">Found {{ num_results }} comments from article: "{{ title }}"</h3>
+    {% endif %}
+    {% if results %}
+    {% for cmt in results %}
+    <p style="color: {{cmt.color}}"><b>{{ cmt.text }} ({{ cmt.result}} {{cmt.confidence}} %)</b></p>
+    {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    start_btn = $("button#start-btn")[0];
+    waiting_icon = $("img#waiting")[0];
+    form = $("form#url-form");
+    start_btn.onclick = () => {
+        form.submit();
+        start_btn.innerHTML = "Waiting...";
+        start_btn.disabled = true;
+        waiting_icon.style.display = "inline";
+    }
+
+</script>
+{% endblock %}

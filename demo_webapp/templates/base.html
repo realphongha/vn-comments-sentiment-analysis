@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <title>{% block title %}Sentiment Analysis Tool{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js "></script>
+
+    <link href="{{ url_for('static', filename='css/master.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='font/flaticon.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='fonts/flaticon.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='img/favicon.ico') }}" rel="shortcut icon">
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block head %}{% endblock %}
+</head>
+<body>
+<div class="header">
+    {% block header %}
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light" id="main-navbar">
+            <div class="container nav-container">
+                <a title="logo" class="logo" href="/"><span style="color: red;">Sentiment</span> Analysis</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- main-nav -->
+                <div class=" main-nav navbar-collapse collapse" id="collapsibleNavbar">
+                    <!-- menu -->
+                    <div class="account-info navbar-nav">
+                        <div class="sign-entries" id="J_signEntries">
+                            <ul>
+                                <li class="entry"><a href="/vnexpress">VNExpress Articles Analysis</a></li>
+                                <li class="entry"><a href="/sentence">Single Sentence Analysis</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    {% endblock %}
+</div>
+<main>
+    <section class="content-main ">
+        {% block menu %}{% endblock %}
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </section>
+</main>
+<div class="footer">
+    {% block footer %}
+    <footer>
+        <div class="footer-area footer-padding ">
+            <div class="container-fl ">
+                <div class="row d-flex justify-content-between">
+                    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6 ">
+                        <div class="single-footer-caption mb-50 ">
+                            <div class="single-footer-caption mb-30 ">
+                                <div class="footer-logo ">
+                                    <a href="/" class="logo">Sentiment Analysis Vietnamese</a>
+                                </div>
+                                <div class="footer-tittle ">
+                                    <div class="footer-pera ">
+                                        <p>2021</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6 ">
+                        <div class="single-footer-caption mb-50 ">
+                            <div class="footer-tittle ">
+                                <h4>About Us</h4>
+                                <ul>
+                                    <li><a href="# ">Ha Hai Phong</a></li><br/>
+                                    <li><a href="# ">Tran Tien Anh</a></li><br/>
+                                    <li><a href="# ">Nguyen Ba Quan</a></li><br/>
+                                    <li><a href="# ">Nguyen Van Long</a></li><br/>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6 ">
+                        <div class="single-footer-caption mb-50 ">
+                            <div class="footer-tittle ">
+                                <h4>Contact</h4>
+                                <ul>
+                                    <li><a href="# ">Phone: +84 123 456 789</a></li><br/>
+                                    <li><a href="# ">Email: mail@mail.com</a></li><br/>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer bottom -->
+        <div class="row align-items-center justify-content-center footer_bottom">
+            <div class="col-xl-7 col-lg-8 col-md-7 pl-4 ">
+                <div class="footer-copy-right ">
+                    <p>
+                        Copyright &copy;
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script>
+                        All rights reserved | This template is made with <i class="fa fa-heart "
+                                                                            aria-hidden="true "></i> by <a
+                            href="https://colorlib.com " target="_blank ">Colorlib</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    {% endblock %}
+</div>
+
+{% block script %}{% endblock %}
+
+</body>
+</html>

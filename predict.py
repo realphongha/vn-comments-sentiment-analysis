@@ -30,7 +30,7 @@ class Predictor(object):
         results = torch.max(torch.sigmoid(outputs[1]), 1)
         confs = results[0].detach().cpu().numpy()
         lbls = results[1].detach().cpu().numpy()
-        return confs, lbls
+        return lbls, confs
 
 
 if __name__ == '__main__':
@@ -52,7 +52,7 @@ if __name__ == '__main__':
     predictor = Predictor(opt.weights, opt.device, len(opt.cls))
     f = open(opt.file, "r", encoding="utf-8")
     texts = f.read().splitlines()
-    confs, lbls = predictor.predict(texts)
+    lbls, confs = predictor.predict(texts)
     for i in range(len(texts)):
         print(texts[i])
         print("Label: %s, Conf: %.4f" % (opt.cls[lbls[i]], confs[i]))

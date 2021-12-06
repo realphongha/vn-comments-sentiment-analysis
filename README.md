@@ -12,6 +12,9 @@
 ### Install requirements
 ```pip install -r requirements.txt```
 
+### For demo webapp:
+ - Install Chrome, Selenium and compatible chromedriver
+
 ## How to run:
 
 ### Training:
@@ -22,6 +25,10 @@
 
 ### Predicting:
 ```python predict.py --weights path/to/weights.pth --file test.txt --device cpu --cls POS NEG NEU```
+
+### Webapp:
+```cd demo_webapp```
+```python webapp.py --weights path/to/weights.pth --device cpu --cls POS NEG NEU```
 
 ## Our project based on `PhoBERT`:
 ```

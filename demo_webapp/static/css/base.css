@@ -1,0 +1,84 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #0b1c39;
+    margin-top: 0px;
+    font-style: normal;
+    font-weight: 500;
+    text-transform: normal;
+}
+
+span {
+    color: #181212;
+}
+
+div {
+    color: #333;
+}
+
+h4 {
+    font-size: 22px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+li {
+    font-size: 14px;
+    list-style: none;
+    display: inline-block;
+}
+
+a {
+    text-decoration: none;
+    color: #474747;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.btn {
+    border: none;
+    box-shadow: none;
+}
+
+.btn:focus {
+    box-shadow: none;
+}
+
+.orange {
+    color: #FB5621;
+}
+
+.hero-cap h2 {
+    font-size: 70px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.flaticon-search,
+.flaticon-user {
+    font-size: 18px !important;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+}
+
+.dropdown.sort {
+    border: 1px solid rgb(207, 207, 207);
+}
+
+.dropdown.user-account button {
+    color: #FFFF;
+}
+
+a.dropdown-item {
+    color: black !important;
+}
