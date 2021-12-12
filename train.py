@@ -343,7 +343,9 @@ if __name__ == '__main__':
         
     datetime_str = datetime.datetime.now().strftime("--%Y-%m-%d--%H-%M")
     output_path = os.path.join(cfg["OUTPUT"], 
-                               cfg["DATASET"]["NAME"] + datetime_str)
+                               cfg["MODEL"]["NAME"] + "--" +
+                               cfg["DATASET"]["NAME"] + 
+                               datetime_str)
     os.makedirs(output_path)    
     with open(os.path.join(output_path, "configs.txt"), "w") as output_file:
         json.dump(cfg, output_file)

@@ -1,3 +1,5 @@
+from time import time
+
 import numpy as np
 import torch
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
@@ -5,7 +7,7 @@ from pyvi import ViTokenizer
 from datasets.preprocess import preprocess_sentence
 
 
-class Predictor(object):
+class PhoBertPredictor(object):
     def __init__(self, model_path, device, num_cls, preprocess=True):
         self.tokenizer = AutoTokenizer.from_pretrained("vinai/phobert-base", use_fast=False)
         self.preprocess = preprocess
@@ -49,10 +51,13 @@ if __name__ == '__main__':
                         default="test.txt", 
                         help='path to file that contains test examples')
     opt = parser.parse_args()
-    predictor = Predictor(opt.weights, opt.device, len(opt.cls))
+    predictor = PhoBertPredictor(opt.weights, opt.device, len(opt.cls))
     f = open(opt.file, "r", encoding="utf-8")
     texts = f.read().splitlines()
+    begin = time()
     lbls, confs = predictor.predict(texts)
+    sps = len(texts)/(time()-begin) # sentences per second
     for i in range(len(texts)):
         print(texts[i])
         print("Label: %s, Conf: %.4f" % (opt.cls[lbls[i]], confs[i]))
+    print("Sentences per second:", sps)

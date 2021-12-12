@@ -10,9 +10,9 @@ CUDNN:
 DATASET: 
   NAME: "VLSP2016"
   PATH: "datasets/datasets/VLSP2016/"
-  TRAIN: 6 
+  TRAIN: 8
   VAL: 2
-  TEST: 2
+  TEST: "test_raw_ANS.txt"
   SHUFFLE: false
 
 MODEL:

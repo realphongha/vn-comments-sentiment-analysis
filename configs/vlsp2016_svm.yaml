@@ -1,0 +1,31 @@
+WORKERS: 2
+OUTPUT: "log"
+
+DATASET: 
+  NAME: "VLSP2016"
+  PATH: "datasets/datasets/VLSP2016/"
+  TRAIN: 8
+  VAL: 2
+  TEST: "test_raw_ANS.txt"
+  SHUFFLE: false
+
+MODEL:
+  NAME: "svm"
+  EMBEDDING: "tfidf"
+
+TRAIN:
+  PREPROCESS: true
+  SHUFFLE: true
+  GRIDSEARCH: true
+  SVM:
+    C: [0.1, 1, 10, 100]
+    KERNEL: ["rbf", "linear"]
+    GAMMA: ["auto", "scale"]
+    CV: 4
+
+TEST:
+  VECTORIZER: 'log/svm--VLSP2016--2021-12-12--16-46/vectorizer.pkl'
+  WEIGHTS: 'log/svm--VLSP2016--2021-12-12--16-46/model.pkl'
+  PREPROCESS: true
+
+DEBUG: true

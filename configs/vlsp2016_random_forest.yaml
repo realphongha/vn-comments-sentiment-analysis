@@ -1,0 +1,33 @@
+WORKERS: 2
+OUTPUT: "log"
+
+DATASET: 
+  NAME: "VLSP2016"
+  PATH: "datasets/datasets/VLSP2016/"
+  TRAIN: 8
+  VAL: 2
+  TEST: "test_raw_ANS.txt"
+  SHUFFLE: false
+
+MODEL:
+  NAME: "rf"
+  EMBEDDING: "tfidf"
+
+TRAIN:
+  PREPROCESS: true
+  SHUFFLE: true
+  GRIDSEARCH: true
+  RF:
+    N_ES: [100, 500, 1000]
+    MAX_DEPTH: [5, 8, 15]
+    MIN_SPLIT: [2, 5, 10]
+    MIN_LEAF: [1, 2, 4]
+    MAX_FEATURES: ["sqrt", "log2"]
+    CV: 4
+
+TEST:
+  VECTORIZER: 'log/rf--VLSP2016--2021-12-12--17-15/vectorizer.pkl'
+  WEIGHTS: 'log/rf--VLSP2016--2021-12-12--17-15/model.pkl'
+  PREPROCESS: true
+
+DEBUG: true

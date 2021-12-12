@@ -10,7 +10,7 @@ from flask import Flask, render_template, request, redirect
 from crawler import crawl_page, create_browser
 from selenium.common.exceptions import InvalidArgumentException, TimeoutException
 from datasets.preprocess import preprocess_sentence
-from predict import Predictor
+from predict import PhoBertPredictor
 
 
 app = Flask(__name__, template_folder="templates",
@@ -29,7 +29,7 @@ class Comment:
 
 def phoBERT(raw_data):
     data = preprocess_sentence(raw_data)
-    return predictor.predict(data)
+    return phoBertPredictor.predict(data)
 
 
 # def NB(raw_data):
@@ -121,6 +121,6 @@ if __name__ == "__main__":
                         help='path to checkpoint')
     opt = parser.parse_args()
     
-    predictor = Predictor(opt.weights, opt.device, len(opt.cls))
+    phoBertPredictor = PhoBertPredictor(opt.weights, opt.device, len(opt.cls))
 
     app.run(debug=False)
