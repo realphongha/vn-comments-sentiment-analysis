@@ -95,6 +95,9 @@ def apply_dictionary(text, dictionary):
 
 
 def preprocess_sentence(data):
+    # add spaces:
+    data = map(lambda x: " " + x.strip() + " ", data)
+    
     # to lower:
     data = map(lambda x: x.lower(), data)
     
