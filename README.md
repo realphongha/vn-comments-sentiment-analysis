@@ -12,23 +12,38 @@
 ### Install requirements
 ```pip install -r requirements.txt```
 
-### For demo webapp:
+### For demo webapp and crawler:
  - Install Chrome, Selenium and compatible chromedriver
 
 ## How to run:
 
-### Training:
+### PhoBERT:
+#### Training:
 ```python train.py --config path/to/config.yaml```
 
-### Testing:
+#### Testing:
 ```python evaluate.py --config path/to/config.yaml --weights path/to/weights.pth```
 
-### Predicting:
+#### Predicting:
 ```python predict.py --weights path/to/weights.pth --file test.txt --device cpu --cls POS NEG NEU```
+
+### Machine learning algorithms:
+#### Training:
+```python machine_learning.py --mode train --cfg path/to/config.yaml```
+
+#### Testing:
+```python machine_learning.py --mode test --cfg path/to/config.yaml```
+
+#### Predicting:
+```python machine_learning.py --mode predict --cfg path/to/config.yaml --file path/to/data/file```
 
 ### Webapp:
 ```cd demo_webapp```
 ```python webapp.py --weights path/to/weights.pth --device cpu --cls POS NEG NEU```
+
+### Crawler:
+```cd crawler```
+```python crawler.py```
 
 ## Our project based on `PhoBERT`:
 ```
