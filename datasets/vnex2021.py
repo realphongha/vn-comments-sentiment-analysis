@@ -55,4 +55,15 @@ class VNEX2021Dataset(BaseDataset):
     
     
 if __name__ == "__main__":
-    pass
+    import yaml
+    cfg_file = r"configs/vnex2021_shuffle_phobert.yaml"
+    with open(cfg_file, "r") as stream:
+        try:
+            cfg = yaml.safe_load(stream)
+        except yaml.YAMLError as exc:
+            print(exc)
+            quit()
+    ds = VNEX2021Dataset(cfg, "test")
+    for i in range(500):
+        print(ds.data[i])
+        print(ds.labels[i])

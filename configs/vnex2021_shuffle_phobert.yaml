@@ -1,0 +1,39 @@
+GPUS: "0"
+WORKERS: 8
+OUTPUT: "log"
+
+CUDNN:
+  BENCHMARK: true
+  DETERMINISTIC: false
+  ENABLED: true
+
+DATASET: 
+  NAME: "VNEX2021"
+  PATH: "datasets/datasets/VNEX2021_shuffle"
+  TRAIN: "train"
+  VAL: "val"
+  TEST: "test"
+
+MODEL:
+  NAME: "phoBERT" # phoBERT
+
+FOCAL_LOSS: true
+
+TRAIN:
+  EPOCH: 10
+  EARLY_STOP: 3
+  LR: 0.00005 # 0.00005, 0.00003, 0.00002, 0.000005
+  BATCH_SIZE: 32 # 16, 32
+  WEIGHTS: ''
+  DROPOUT: 0.5
+  FREEZE_BACKBONE: false
+  PREPROCESS: true
+  OPTIMIZER: "AdamW" # AdamW, Adafactor
+  SHUFFLE: true
+
+TEST:
+  BATCH_SIZE: 32
+  WEIGHTS: ''
+  PREPROCESS: true
+
+DEBUG: true

@@ -27,6 +27,13 @@ icon = [
     (r' \({2,} ', r' '),
     (r' T_T ', r' '),
     (r' T.T ', r' '),
+    (r' \(^.^\) ', r' '),
+    (r' ^.^ ', r' '),
+    (r' =\){1,} ', r' '),
+    (r' ^-^ ', r' '),
+    (r' ^_^ ', r' '),
+    (r' \?{2,} ', r' ? '),
+    (r' !{2,} ', r' ! '),
 ]
 
 
@@ -37,11 +44,11 @@ abbreviation = {
     'respecc': 'tôn trọng', 'oh': 'ô', 'tks': 'cảm ơn', 
     'thanks': 'cảm ơn', 'thank': 'cảm ơn', '#1': 'nhất', 
     'never': 'không bao giờ', 'bik': 'biết', 
-    'ysl': 'yếu sinh lý', 'hok': 'không'}
+    'ysl': 'yếu sinh lý'    }
 
 
 english = {'you': 'bạn', 'cute': 'dễ thương', 'funny': "hài hước",
-           'fun': 'vui', 'sad': 'buồn'}
+           'fun': 'vui', 'sad': 'buồn', 'cool': 'ngầu', 'kool': 'ngầu'}
 
 
 sentiment_words = {# Chuẩn hóa 1 số sentiment words/English words
