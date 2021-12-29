@@ -93,11 +93,11 @@ def main(cfg, opt):
     clf_report = classification_report(true_labels, pred_labels)
     print(clf_report)
     for i in range(num_cls):
-        acc_log = 'Accuracy of %5s: %2d %%' % (
-            labels_map[i], 100 * class_correct[i] / class_total[i])
+        acc_log = 'Accuracy of %5s: %.4f %%' % (
+            labels_map[i], class_correct[i] / class_total[i])
         print(acc_log)
-    avg_acc_log = 'Average accuracy: %2d %%' % (
-            100 * sum(class_correct) / sum(class_total))
+    avg_acc_log = 'Average accuracy: %.4f %%' % (
+            sum(class_correct) / sum(class_total))
     print(avg_acc_log)
 
 

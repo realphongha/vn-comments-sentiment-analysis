@@ -1,0 +1,30 @@
+WORKERS: 2
+OUTPUT: "log"
+
+DATASET: 
+  NAME: "VNEX2021"
+  PATH: "datasets/datasets/VNEX2021_cross_domain"
+  TRAIN: "train"
+  VAL: "val"
+  TEST: "test"
+
+MODEL:
+  NAME: "svm"
+  EMBEDDING: "tfidf"
+
+TRAIN:
+  PREPROCESS: true
+  SHUFFLE: true
+  GRIDSEARCH: true
+  SVM:
+    C: [0.1, 1, 10, 100]
+    KERNEL: ["rbf", "linear"]
+    GAMMA: ["auto", "scale"]
+    CV: 4
+
+TEST:
+  VECTORIZER: 'log/svm--VLSP2016--2021-12-12--16-46/vectorizer.pkl'
+  WEIGHTS: 'log/svm--VLSP2016--2021-12-12--16-46/model.pkl'
+  PREPROCESS: true
+
+DEBUG: true

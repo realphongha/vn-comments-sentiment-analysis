@@ -203,7 +203,7 @@ def main(cfg, output_path):
                 train_losses.append(loss.item())
             if step % iteration == iteration - 1:
                 logs = "[EPOCH: {} STEP: {}] loss train: {:.3f}, acc train: {:.3f}" \
-                    .format(epoch, step + 1, running_loss / iteration, 100 * correct / total)
+                    .format(epoch, step + 1, running_loss / iteration, correct / total)
                 # print('\n', logs)
                 log_file.write(logs)
                 log_file.write("\n")
@@ -264,12 +264,12 @@ def main(cfg, output_path):
             os.path.join(output_path, 'val_epoch_{}.csv'.format(epoch)), 
             index=True)
         for i in range(num_cls):
-            acc_log = 'Accuracy of %5s: %2d %%' % (
-                labels_map[i], 100 * class_correct[i] / class_total[i])
+            acc_log = 'Accuracy of %5s: %.4f %%' % (
+                labels_map[i], class_correct[i] / class_total[i])
             print(acc_log)
             log_file.write(acc_log + "\n")
-        avg_acc_log = 'Average accuracy: %2d %%' % (
-                100 * sum(class_correct) / sum(class_total))
+        avg_acc_log = 'Average accuracy: %.4f %%' % (
+                sum(class_correct) / sum(class_total))
         print(avg_acc_log)
         log_file.write(avg_acc_log + "\n")
 

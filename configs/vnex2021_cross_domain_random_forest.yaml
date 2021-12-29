@@ -1,0 +1,32 @@
+WORKERS: 2
+OUTPUT: "log"
+
+DATASET: 
+  NAME: "VNEX2021"
+  PATH: "datasets/datasets/VNEX2021_cross_domain"
+  TRAIN: "train"
+  VAL: "val"
+  TEST: "test"
+
+MODEL:
+  NAME: "rf"
+  EMBEDDING: "tfidf"
+
+TRAIN:
+  PREPROCESS: true
+  SHUFFLE: true
+  GRIDSEARCH: true
+  RF:
+    N_ES: [100, 500, 1000]
+    MAX_DEPTH: [5, 8, 15]
+    MIN_SPLIT: [2, 5, 10]
+    MIN_LEAF: [1, 2, 4]
+    MAX_FEATURES: ["sqrt", "log2"]
+    CV: 4
+
+TEST:
+  VECTORIZER: ''
+  WEIGHTS: ''
+  PREPROCESS: true
+
+DEBUG: true
