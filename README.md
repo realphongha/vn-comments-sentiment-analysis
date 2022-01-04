@@ -17,6 +17,10 @@
 
 ## How to run:
 
+### Prepare data:
+ - Put datasets in datasets/datasets (we already put a small part of our 
+ VNEX2021 dataset as an example)
+
 ### PhoBERT:
 #### Training:
 ```python train.py --config path/to/config.yaml```
